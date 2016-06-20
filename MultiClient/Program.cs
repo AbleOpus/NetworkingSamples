@@ -30,6 +30,7 @@ namespace Multi_Client
                 {
                     attempts++;
                     Console.WriteLine("Connection attempt " + attempts);
+                    // Change IPAddress.Loopback to a remote IP to connect to a remote host.
                     ClientSocket.Connect(IPAddress.Loopback, PORT);
                 }
                 catch (SocketException) 

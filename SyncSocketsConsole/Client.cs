@@ -17,6 +17,7 @@ namespace SyncSocketsConsole
             try
             {
                 clientSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+                // Change IPAddress.Loopback to a remote IP to connect to a remote host.
                 clientSocket.Connect(IPAddress.Loopback, Program.Port);
 
                 while (true)
