@@ -7,7 +7,7 @@
     <ProjectGuid>{841DAD7C-427C-4F5A-9E39-4EE71EFE81D2}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Multi_Server</RootNamespace>
+    <RootNamespace>MultiServer</RootNamespace>
     <AssemblyName>Multi Server</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

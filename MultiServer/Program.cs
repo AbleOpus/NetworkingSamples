@@ -4,7 +4,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 
-namespace Multi_Server
+namespace MultiServer
 {
     class Program
     {
