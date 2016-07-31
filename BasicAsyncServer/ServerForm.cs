@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Net;
 using System.Net.Sockets;
+using System.Text;
 using System.Windows.Forms;
 
 namespace BasicAsyncServer
@@ -53,8 +54,30 @@ namespace BasicAsyncServer
             {
                 clientSocket = serverSocket.EndAccept(AR);
                 buffer = new byte[clientSocket.ReceiveBufferSize];
+
+                // Send a message to the newly connected client.
+                var sendData = Encoding.ASCII.GetBytes("Hello");
+                clientSocket.BeginSend(sendData, 0, sendData.Length, SocketFlags.None, SendCallback, null);
+                // Listen for client data.
                 clientSocket.BeginReceive(buffer, 0, buffer.Length, SocketFlags.None, ReceiveCallback, null);
+                // Continue listening for clients.
                 serverSocket.BeginAccept(AcceptCallback, null);
+            }
+            catch (SocketException ex)
+            {
+                ShowErrorDialog(ex.Message);
+            }
+            catch (ObjectDisposedException ex)
+            {
+                ShowErrorDialog(ex.Message);
+            }
+        }
+
+        private void SendCallback(IAsyncResult AR)
+        {
+            try
+            {
+                clientSocket.EndSend(AR);
             }
             catch (SocketException ex)
             {
@@ -70,6 +93,8 @@ namespace BasicAsyncServer
         {
             try
             {
+                // Socket exception will raise here when client closes, as this sample does not
+                // demonstrate graceful disconnects for the sake of simplicity.
                 int received = clientSocket.EndReceive(AR);
 
                 if (received == 0)

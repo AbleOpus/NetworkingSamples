@@ -1,6 +1,8 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Net;
 using System.Net.Sockets;
+using System.Text;
 using System.Windows.Forms;
 
 namespace BasicAsyncClient
@@ -8,6 +10,7 @@ namespace BasicAsyncClient
     public partial class ClientForm : Form
     {
         private Socket clientSocket;
+        private byte[] buffer;
 
         public ClientForm()
         {
@@ -19,12 +22,47 @@ namespace BasicAsyncClient
             MessageBox.Show(message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
+        private void ReceiveCallback(IAsyncResult AR)
+        {
+            try
+            {
+                int received = clientSocket.EndReceive(AR);
+
+                if (received == 0)
+                {
+                    return;
+                }
+
+
+                string message = Encoding.ASCII.GetString(buffer);
+
+                Invoke((Action) delegate
+                {
+                    Text = "Server says: " + message;
+                });
+
+                // Start receiving data again.
+                clientSocket.BeginReceive(buffer, 0, buffer.Length, SocketFlags.None, ReceiveCallback, null);
+            }
+            // Avoid Pokemon exception handling in cases like these.
+            catch (SocketException ex)
+            {
+                ShowErrorDialog(ex.Message);
+            }
+            catch (ObjectDisposedException ex)
+            {
+                ShowErrorDialog(ex.Message);
+            }
+        }
+
         private void ConnectCallback(IAsyncResult AR)
         {
             try
             {
                 clientSocket.EndConnect(AR);
                 UpdateControlStates(true);
+                buffer = new byte[clientSocket.ReceiveBufferSize];
+                clientSocket.BeginReceive(buffer, 0, buffer.Length, SocketFlags.None, ReceiveCallback, null);
             }
             catch (SocketException ex)
             {
@@ -71,7 +109,6 @@ namespace BasicAsyncClient
             {
                 // Serialize the textBoxes text before sending.
                 PersonPackage person = new PersonPackage(checkBoxMale.Checked, (ushort)numberBoxAge.Value, textBoxEmployee.Text);
-
                 byte[] buffer = person.ToByteArray();
                 clientSocket.BeginSend(buffer, 0, buffer.Length, SocketFlags.None, SendCallback, null);
             }
