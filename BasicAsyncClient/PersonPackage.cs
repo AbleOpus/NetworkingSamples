@@ -29,8 +29,11 @@ namespace BasicAsyncClient
         }
 
         /// <summary>
-        ///  Serialize object to send over a network.
+        ///  Serializes this package to a byte array.
         /// </summary>
+        /// <remarks>
+        /// Use the <see cref="Buffer"/> or <see cref="Array"/> class for better performance.
+        /// </remarks>
         public byte[] ToByteArray()
         {
             List<byte> byteList = new List<byte>();

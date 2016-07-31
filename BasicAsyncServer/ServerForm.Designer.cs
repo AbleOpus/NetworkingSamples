@@ -76,7 +76,7 @@
             this.ClientSize = new System.Drawing.Size(349, 437);
             this.Controls.Add(this.dataGridView);
             this.Name = "ServerForm";
-            this.Text = "Server";
+            this.Text = "Basic Async Server";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
 

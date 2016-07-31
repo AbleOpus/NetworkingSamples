@@ -19,24 +19,6 @@ namespace BasicAsyncClient
             MessageBox.Show(message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        private void buttonConnect_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                clientSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-                // Connect to the local host
-                clientSocket.BeginConnect(new IPEndPoint(IPAddress.Parse(txtAddress.Text), 3333), ConnectCallback, null);
-            }
-            catch (SocketException ex)
-            {
-                ShowErrorDialog(ex.Message);
-            }
-            catch (ObjectDisposedException ex)
-            {
-                ShowErrorDialog(ex.Message);
-            }
-        }
-
         private void ConnectCallback(IAsyncResult AR)
         {
             try
@@ -54,27 +36,41 @@ namespace BasicAsyncClient
             }
         }
 
+        private void SendCallback(IAsyncResult AR)
+        {
+            try
+            {
+                clientSocket.EndSend(AR);
+            }
+            catch (SocketException ex)
+            {
+                ShowErrorDialog(ex.Message);
+            }
+            catch (ObjectDisposedException ex)
+            {
+                ShowErrorDialog(ex.Message);
+            }
+        }
+
         /// <summary>
         /// A thread safe way to enable the send button.
         /// </summary>
         private void UpdateControlStates(bool toggle)
         {
-            MethodInvoker invoker = delegate
+            Invoke((Action)delegate
             {
-                btnSend.Enabled = toggle;
-                btnConnect.Enabled = !toggle;
-                lblIP.Visible = txtAddress.Visible = !toggle;
-            };
-
-            Invoke(invoker);
+                buttonSend.Enabled = toggle;
+                buttonConnect.Enabled = !toggle;
+                labelIP.Visible = textBoxAddress.Visible = !toggle;
+            });
         }
 
         private void buttonSend_Click(object sender, EventArgs e)
         {
             try
             {
-                // Serialize the textBoxes text before sending
-                PersonPackage person = new PersonPackage(chkMale.Checked, (ushort)nudAge.Value, txtEmployee.Text);
+                // Serialize the textBoxes text before sending.
+                PersonPackage person = new PersonPackage(checkBoxMale.Checked, (ushort)numberBoxAge.Value, textBoxEmployee.Text);
 
                 byte[] buffer = person.ToByteArray();
                 clientSocket.BeginSend(buffer, 0, buffer.Length, SocketFlags.None, SendCallback, null);
@@ -91,11 +87,14 @@ namespace BasicAsyncClient
             }
         }
 
-        private void SendCallback(IAsyncResult AR)
+        private void buttonConnect_Click(object sender, EventArgs e)
         {
             try
             {
-                clientSocket.EndSend(AR);
+                clientSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+                // Connect to the specified host.
+                var endPoint = new IPEndPoint(IPAddress.Parse(textBoxAddress.Text), 3333);
+                clientSocket.BeginConnect(endPoint, ConnectCallback, null);
             }
             catch (SocketException ex)
             {

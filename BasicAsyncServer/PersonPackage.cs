@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
@@ -25,6 +26,12 @@ namespace BasicAsyncServer
             Name = Encoding.ASCII.GetString(data, 7, nameLength);
         }
 
+        /// <summary>
+        ///  Serializes this package to a byte array.
+        /// </summary>
+        /// <remarks>
+        /// Use the <see cref="Buffer"/> or <see cref="Array"/> class for better performance.
+        /// </remarks>
         public byte[] ToByteArray()
         {
             List<byte> byteList = new List<byte>();
@@ -32,7 +39,6 @@ namespace BasicAsyncServer
             byteList.AddRange(BitConverter.GetBytes(Age));
             byteList.AddRange(BitConverter.GetBytes(Name.Length));
             byteList.AddRange(Encoding.ASCII.GetBytes(Name));
-
             return byteList.ToArray();
         }
     }

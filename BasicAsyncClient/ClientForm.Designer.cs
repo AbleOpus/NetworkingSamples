@@ -32,85 +32,85 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnSend = new System.Windows.Forms.Button();
-            this.btnConnect = new System.Windows.Forms.Button();
-            this.lblIP = new System.Windows.Forms.Label();
-            this.txtAddress = new System.Windows.Forms.TextBox();
-            this.chkMale = new System.Windows.Forms.CheckBox();
-            this.txtEmployee = new System.Windows.Forms.TextBox();
+            this.buttonSend = new System.Windows.Forms.Button();
+            this.buttonConnect = new System.Windows.Forms.Button();
+            this.labelIP = new System.Windows.Forms.Label();
+            this.textBoxAddress = new System.Windows.Forms.TextBox();
+            this.checkBoxMale = new System.Windows.Forms.CheckBox();
+            this.textBoxEmployee = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.nudAge = new System.Windows.Forms.NumericUpDown();
+            this.numberBoxAge = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.nudAge)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numberBoxAge)).BeginInit();
             this.SuspendLayout();
             // 
-            // btnSend
+            // buttonSend
             // 
-            this.btnSend.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSend.Enabled = false;
-            this.btnSend.Location = new System.Drawing.Point(226, 89);
-            this.btnSend.Name = "btnSend";
-            this.btnSend.Size = new System.Drawing.Size(75, 23);
-            this.btnSend.TabIndex = 0;
-            this.btnSend.Text = "Send";
-            this.btnSend.UseVisualStyleBackColor = true;
-            this.btnSend.Click += new System.EventHandler(this.buttonSend_Click);
+            this.buttonSend.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonSend.Enabled = false;
+            this.buttonSend.Location = new System.Drawing.Point(226, 89);
+            this.buttonSend.Name = "buttonSend";
+            this.buttonSend.Size = new System.Drawing.Size(75, 23);
+            this.buttonSend.TabIndex = 0;
+            this.buttonSend.Text = "Send";
+            this.buttonSend.UseVisualStyleBackColor = true;
+            this.buttonSend.Click += new System.EventHandler(this.buttonSend_Click);
             // 
-            // btnConnect
+            // buttonConnect
             // 
-            this.btnConnect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnConnect.Location = new System.Drawing.Point(307, 89);
-            this.btnConnect.Name = "btnConnect";
-            this.btnConnect.Size = new System.Drawing.Size(75, 23);
-            this.btnConnect.TabIndex = 1;
-            this.btnConnect.Text = "Connect";
-            this.btnConnect.UseVisualStyleBackColor = true;
-            this.btnConnect.Click += new System.EventHandler(this.buttonConnect_Click);
+            this.buttonConnect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonConnect.Location = new System.Drawing.Point(307, 89);
+            this.buttonConnect.Name = "buttonConnect";
+            this.buttonConnect.Size = new System.Drawing.Size(75, 23);
+            this.buttonConnect.TabIndex = 1;
+            this.buttonConnect.Text = "Connect";
+            this.buttonConnect.UseVisualStyleBackColor = true;
+            this.buttonConnect.Click += new System.EventHandler(this.buttonConnect_Click);
             // 
-            // lblIP
+            // labelIP
             // 
-            this.lblIP.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblIP.AutoSize = true;
-            this.lblIP.Location = new System.Drawing.Point(12, 94);
-            this.lblIP.Name = "lblIP";
-            this.lblIP.Size = new System.Drawing.Size(17, 13);
-            this.lblIP.TabIndex = 3;
-            this.lblIP.Text = "IP";
+            this.labelIP.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelIP.AutoSize = true;
+            this.labelIP.Location = new System.Drawing.Point(12, 94);
+            this.labelIP.Name = "labelIP";
+            this.labelIP.Size = new System.Drawing.Size(17, 13);
+            this.labelIP.TabIndex = 3;
+            this.labelIP.Text = "IP";
             // 
-            // txtAddress
+            // textBoxAddress
             // 
-            this.txtAddress.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtAddress.Location = new System.Drawing.Point(35, 91);
-            this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(185, 20);
-            this.txtAddress.TabIndex = 4;
-            this.txtAddress.Text = "127.0.0.1";
+            this.textBoxAddress.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.textBoxAddress.Location = new System.Drawing.Point(35, 91);
+            this.textBoxAddress.Name = "textBoxAddress";
+            this.textBoxAddress.Size = new System.Drawing.Size(185, 20);
+            this.textBoxAddress.TabIndex = 4;
+            this.textBoxAddress.Text = "127.0.0.1";
             // 
-            // chkMale
+            // checkBoxMale
             // 
-            this.chkMale.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.chkMale.AutoSize = true;
-            this.chkMale.Location = new System.Drawing.Point(14, 43);
-            this.chkMale.Name = "chkMale";
-            this.chkMale.Size = new System.Drawing.Size(60, 17);
-            this.chkMale.TabIndex = 5;
-            this.chkMale.Text = "Is Male";
-            this.chkMale.UseVisualStyleBackColor = true;
+            this.checkBoxMale.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.checkBoxMale.AutoSize = true;
+            this.checkBoxMale.Location = new System.Drawing.Point(14, 43);
+            this.checkBoxMale.Name = "checkBoxMale";
+            this.checkBoxMale.Size = new System.Drawing.Size(60, 17);
+            this.checkBoxMale.TabIndex = 5;
+            this.checkBoxMale.Text = "Is Male";
+            this.checkBoxMale.UseVisualStyleBackColor = true;
             // 
-            // txtEmployee
+            // textBoxEmployee
             // 
-            this.txtEmployee.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtEmployee.Location = new System.Drawing.Point(55, 17);
-            this.txtEmployee.Name = "txtEmployee";
-            this.txtEmployee.Size = new System.Drawing.Size(329, 20);
-            this.txtEmployee.TabIndex = 7;
+            this.textBoxEmployee.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxEmployee.Location = new System.Drawing.Point(55, 17);
+            this.textBoxEmployee.Name = "textBoxEmployee";
+            this.textBoxEmployee.Size = new System.Drawing.Size(329, 20);
+            this.textBoxEmployee.TabIndex = 7;
             // 
             // label1
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(14, 20);
             this.label1.Name = "label1";
@@ -118,25 +118,25 @@
             this.label1.TabIndex = 6;
             this.label1.Text = "Name";
             // 
-            // nudAge
+            // numberBoxAge
             // 
-            this.nudAge.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.nudAge.Location = new System.Drawing.Point(55, 66);
-            this.nudAge.Name = "nudAge";
-            this.nudAge.Size = new System.Drawing.Size(79, 20);
-            this.nudAge.TabIndex = 8;
+            this.numberBoxAge.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.numberBoxAge.Location = new System.Drawing.Point(55, 66);
+            this.numberBoxAge.Name = "numberBoxAge";
+            this.numberBoxAge.Size = new System.Drawing.Size(79, 20);
+            this.numberBoxAge.TabIndex = 8;
             // 
             // label2
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(14, 68);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.Size = new System.Drawing.Size(26, 13);
             this.label2.TabIndex = 9;
-            this.label2.Text = "Name";
+            this.label2.Text = "Age";
             // 
             // ClientForm
             // 
@@ -144,18 +144,19 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(394, 124);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.nudAge);
-            this.Controls.Add(this.txtEmployee);
+            this.Controls.Add(this.numberBoxAge);
+            this.Controls.Add(this.textBoxEmployee);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.chkMale);
-            this.Controls.Add(this.txtAddress);
-            this.Controls.Add(this.lblIP);
-            this.Controls.Add(this.btnConnect);
-            this.Controls.Add(this.btnSend);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Controls.Add(this.checkBoxMale);
+            this.Controls.Add(this.textBoxAddress);
+            this.Controls.Add(this.labelIP);
+            this.Controls.Add(this.buttonConnect);
+            this.Controls.Add(this.buttonSend);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "ClientForm";
-            this.Text = "Client";
-            ((System.ComponentModel.ISupportInitialize)(this.nudAge)).EndInit();
+            this.Text = "Basic Async Client";
+            ((System.ComponentModel.ISupportInitialize)(this.numberBoxAge)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -163,14 +164,14 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnSend;
-        private System.Windows.Forms.Button btnConnect;
-        private System.Windows.Forms.Label lblIP;
-        private System.Windows.Forms.TextBox txtAddress;
-        private System.Windows.Forms.CheckBox chkMale;
-        private System.Windows.Forms.TextBox txtEmployee;
+        private System.Windows.Forms.Button buttonSend;
+        private System.Windows.Forms.Button buttonConnect;
+        private System.Windows.Forms.Label labelIP;
+        private System.Windows.Forms.TextBox textBoxAddress;
+        private System.Windows.Forms.CheckBox checkBoxMale;
+        private System.Windows.Forms.TextBox textBoxEmployee;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.NumericUpDown nudAge;
+        private System.Windows.Forms.NumericUpDown numberBoxAge;
         private System.Windows.Forms.Label label2;
     }
 }

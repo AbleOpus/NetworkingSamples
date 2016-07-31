@@ -8,7 +8,7 @@ namespace BasicAsyncServer
     public partial class ServerForm : Form
     {
         private Socket serverSocket;
-        private Socket clientSocket; // We will only accept one socket
+        private Socket clientSocket; // We will only accept one socket.
         private byte[] buffer;
 
         public ServerForm()
@@ -77,12 +77,14 @@ namespace BasicAsyncServer
                     return;
                 }
 
+                // The received data is deserialized in the PersonPackage ctor.
                 PersonPackage person = new PersonPackage(buffer);
                 SubmitPersonToDataGrid(person);
 
                 // Start receiving data again.
                 clientSocket.BeginReceive(buffer, 0, buffer.Length, SocketFlags.None, ReceiveCallback, null);
             }
+            // Avoid Pokemon exception handling in cases like these.
             catch (SocketException ex)
             {
                 ShowErrorDialog(ex.Message);
@@ -94,17 +96,14 @@ namespace BasicAsyncServer
         }
 
         /// <summary>
-        /// Provides a thread safe way to append text to the textbox.
+        /// Provides a thread safe way to add a row to the data grid.
         /// </summary>
         private void SubmitPersonToDataGrid(PersonPackage person)
         {
-            MethodInvoker invoker = delegate
+            Invoke((Action)delegate
             {
-                // Add two new lines afterwards
                 dataGridView.Rows.Add(person.Name, person.Age, person.IsMale);
-            };
-
-            Invoke(invoker);
+            });
         }
     }
 }
